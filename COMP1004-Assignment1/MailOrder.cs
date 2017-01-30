@@ -37,8 +37,6 @@ namespace COMP1004_Assignment1
         private void HoursWorkedTextBox_TextChanged(object sender, EventArgs e)
         {
             bool valid = true;
-
-         
             try
             {
                 //convert value to number
@@ -62,7 +60,6 @@ namespace COMP1004_Assignment1
                 CalculateButton.Enabled = true;
                 HoursWorkedLabel.Text = "Hours Worked";
             }
-
             else
             {
                 // Invalid input so disable calculate button and display error message
@@ -76,14 +73,11 @@ namespace COMP1004_Assignment1
         //Handler for shows in currency format
         private void TotalSalesTextBox_TextChanged(object sender, EventArgs e)
         {
-            //Formate currecncy
-            TotalSalesTextBox.Text = TotalSalesTextBox.Text;
-            //After format, move cursor to end of content
-            TotalSalesTextBox.Select(TotalSalesTextBox.Text.Length, 0);
+            TotalSalesTextBox.Text = "$" + TotalSalesTextBox.Text;
 
         }
 
-
+        
         /// <summary>
         /// Handler for EnglishButton Checked Event
         /// </summary>
@@ -165,9 +159,9 @@ namespace COMP1004_Assignment1
         private void PrintButton_Click(object sender, EventArgs e)
         {
             // Print form to a Print Preview window
-           
+            Form form2 = new Form();
+            form2.Show();          
         }
-
-       
+   
     }
 }
