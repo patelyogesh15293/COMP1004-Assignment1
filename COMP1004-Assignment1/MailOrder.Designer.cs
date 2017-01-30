@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MailOrder));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LanguageGroupBox = new System.Windows.Forms.GroupBox();
             this.FrançaisRadioButton = new System.Windows.Forms.RadioButton();
@@ -55,9 +56,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(16, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 110);
+            this.pictureBox1.Size = new System.Drawing.Size(103, 100);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -65,7 +67,7 @@
             // 
             this.LanguageGroupBox.Controls.Add(this.FrançaisRadioButton);
             this.LanguageGroupBox.Controls.Add(this.EnglishRadioButton);
-            this.LanguageGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LanguageGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LanguageGroupBox.Location = new System.Drawing.Point(206, 12);
             this.LanguageGroupBox.Name = "LanguageGroupBox";
             this.LanguageGroupBox.Size = new System.Drawing.Size(183, 94);

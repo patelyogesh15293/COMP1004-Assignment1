@@ -38,11 +38,20 @@ namespace COMP1004_Assignment1
         {
             bool valid = true;
 
-            //convert value to number
-            float EnteredHours = Convert.ToSingle(HoursWorkedTextBox.Text);
+         
+            try
+            {
+                //convert value to number
+                float EnteredHours = Convert.ToSingle(HoursWorkedTextBox.Text);
 
-            // If condition check entered umber is valid or not
-            if (EnteredHours > 160 || EnteredHours < 0)
+                // If condition check entered umber is valid or not
+                if (EnteredHours > 160 || EnteredHours < 0)
+                {
+                    valid = false;
+                }
+            }
+
+            catch
             {
                 valid = false;
             }
@@ -64,15 +73,15 @@ namespace COMP1004_Assignment1
 
         }
 
-        ////Handler for shows in currency format
-        //private void TotalSalesTextBox_TextChanged(object sender, EventArgs e)
-        //{
-        //    //Formate currecncy
-        //    TotalSalesTextBox.Text = FormatCurrency(TotalSalesTextBox.Text);
-        //    //After format, move cursor to end of content
-        //    TotalSalesTextBox.Select(TotalSalesTextBox.Text.Length, 0);
+        //Handler for shows in currency format
+        private void TotalSalesTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //Formate currecncy
+            TotalSalesTextBox.Text = TotalSalesTextBox.Text;
+            //After format, move cursor to end of content
+            TotalSalesTextBox.Select(TotalSalesTextBox.Text.Length, 0);
 
-        //}
+        }
 
 
         /// <summary>
@@ -120,7 +129,7 @@ namespace COMP1004_Assignment1
         private void CalculateButton_Click(object sender, EventArgs e)
         {
             // Get the hours and sales figures for the calculation
-            float TotalSalesValue = Convert.ToSingle(SanitizeNumeric(TotalSalesTextBox.Text));
+            float TotalSalesValue = Convert.ToSingle(TotalSalesTextBox.Text);
             float TotalHours = Convert.ToSingle(HoursWorkedTextBox.Text);
 
             // Perform the calculation
@@ -129,7 +138,7 @@ namespace COMP1004_Assignment1
             double ActualBonus = Percentage * TotalBonusAmount;
 
             // Format the result and insert into SalesBonusTextBox
-            SalesBonusTextBox.Text = FormatCurrency(Convert.ToString(actualBonus));
+            SalesBonusTextBox.Text = Convert.ToString(ActualBonus);
         }
 
         /// <summary>
@@ -143,6 +152,7 @@ namespace COMP1004_Assignment1
             EmployeeNameTextBox.Text = "";
             EmployeeIDTextBox.Text = "";
             HoursWorkedTextBox.Text = "";
+            TotalSalesTextBox.Text = "";
             SalesBonusTextBox.Text = "";
             EmployeeNameTextBox.Focus();
         }
@@ -155,15 +165,9 @@ namespace COMP1004_Assignment1
         private void PrintButton_Click(object sender, EventArgs e)
         {
             // Print form to a Print Preview window
-            MailOrder.PrintAction = System.Drawing.Printing.PrintAction.PrintToPreview;
-            MailOrder.Print();
+           
         }
 
-        private static void Print()
-        {
-            throw new NotImplementedException();
-        }
-
-
+       
     }
 }
